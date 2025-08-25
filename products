@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Menu - Sweet Bites Bakery</title>
+  <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+  <header>
+    <h1>Our Menu</h1>
+    <nav>
+      <a href="index.html">Home</a>
+      <a href="about.html">About</a>
+      <a href="products.html">Menu</a>
+      <a href="enquiry.html">Enquiry</a>
+      <a href="contact.html">Contact</a>
+    </nav>
+  </header>
+
+  <main>
+    <h2>Fresh Baked Goods</h2>
+    <ul>
+      <li>Chocolate Cake – R120</li>
+      <li>Sourdough Bread – R40</li>
+      <li>Butter Croissant – R20</li>
+      <li>Cupcakes (6 pack) – R90</li>
+      <li>Cheesecake – R150</li>
+    </ul>
+  </main>
+
+  <footer>
+    <p>© 2025 Sweet Bites Bakery</p>
+  </footer>
+</body>
+</html>
