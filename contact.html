@@ -1,52 +1,67 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Contact - Sweet Bites Bakery</title>
-  <link rel="stylesheet" href="css/styles.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact - Sweet Bites Bakery</title>
+    <link rel="stylesheet" href="css/styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Pacifico&family=Poppins:wght@400;500;600&display=swap" rel="stylesheet">
 </head>
 <body>
-  <header>
-    <h1>Contact Us</h1>
-    <nav>
-      <a href="index.html">Home</a>
-      <a href="about.html">About</a>
-      <a href="products.html">Menu</a>
-      <a href="enquiry.html">Enquiry</a>
-      <a href="contact.html">Contact</a>
-    </nav>
-  </header>
+    <header class="container">
+        <a href="index.html" class="logo">Sweet Bites Bakery</a>
+        <nav>
+            <a href="index.html">Home</a>
+            <a href="about.html">About</a>
+            <a href="products.html">Menu</a>
+            <a href="enquiry.html">Order</a>
+            <a href="contact.html" aria-current="page">Contact</a>
+        </nav>
+    </header>
 
-  <main>
-    <h2>Get in Touch</h2>
-    <p>Email: info@sweetbites.co.za</p>
-    <p>Phone: +27 60 000 0000</p>
+    <main class="container">
+        <h1>Contact Us</h1>
+        
+        <section style="margin-bottom: var(--space-lg);">
+            <h2>Get in Touch</h2>
+            <p><strong>Email:</strong> hello@sweetbites.co.za</p>
+            <p><strong>Phone:</strong> <a href="tel:+27621234567">+27 62 123 4567</a></p>
+        </section>
 
-    <h3>Our Locations</h3>
-    <p>Cape Town – Main Branch</p>
-    <iframe src="https://maps.google.com/maps?q=Cape%20Town&t=&z=13&ie=UTF8&iwloc=&output=embed" width="100%" height="250"></iframe>
+        <section style="margin-bottom: var(--space-lg);">
+            <h2>Our Locations</h2>
+            
+            <div style="margin-bottom: var(--space-md);">
+                <h3>Cape Town CBD</h3>
+                <iframe src="https://maps.google.com/maps?q=Cape%20Town%20CBD&t=&z=15&ie=UTF8&iwloc=&output=embed" width="100%" height="250"></iframe>
+            </div>
+            
+            <div style="margin-bottom: var(--space-md);">
+                <h3>Claremont</h3>
+                <iframe src="https://maps.google.com/maps?q=Claremont%2C%20Cape%20Town&t=&z=15&ie=UTF8&iwloc=&output=embed" width="100%" height="250"></iframe>
+            </div>
+        </section>
 
-    <p>Stellenbosch – Outlet</p>
-    <iframe src="https://maps.google.com/maps?q=Stellenbosch&t=&z=13&ie=UTF8&iwloc=&output=embed" width="100%" height="250"></iframe>
+        <section>
+            <h2>Send a Message</h2>
+            <form action="#" method="post">
+                <label for="name">Name:</label>
+                <input type="text" id="name" name="name" required>
 
-    <h3>Send a Message</h3>
-    <form action="#" method="post">
-      <label for="name">Name:</label>
-      <input type="text" id="name" name="name" required>
+                <label for="email">Email:</label>
+                <input type="email" id="email" name="email" required>
 
-      <label for="email">Email:</label>
-      <input type="email" id="email" name="email" required>
+                <label for="message">Message:</label>
+                <textarea id="message" name="message" rows="4" required></textarea>
 
-      <label for="message">Message:</label>
-      <textarea id="message" name="message" required></textarea>
+                <button type="submit">Send Message</button>
+            </form>
+        </section>
+    </main>
 
-      <button type="submit">Send</button>
-    </form>
-  </main>
-
-  <footer>
-    <p>© 2025 Sweet Bites Bakery</p>
-  </footer>
+    <footer class="container">
+        <p>© 2018–2025 Sweet Bites Bakery • Cape Town • <a href="tel:+27621234567">+27 62 123 4567</a></p>
+    </footer>
 </body>
 </html>
+
