@@ -1,36 +1,69 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Menu - Sweet Bites Bakery</title>
-  <link rel="stylesheet" href="css/styles.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Menu - Sweet Bites Bakery</title>
+    <link rel="stylesheet" href="css/styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Pacifico&family=Poppins:wght@400;500;600&display=swap" rel="stylesheet">
 </head>
 <body>
-  <header>
-    <h1>Our Menu</h1>
-    <nav>
-      <a href="index.html">Home</a>
-      <a href="about.html">About</a>
-      <a href="products.html">Menu</a>
-      <a href="enquiry.html">Enquiry</a>
-      <a href="contact.html">Contact</a>
-    </nav>
-  </header>
+    <header class="container">
+        <a href="index.html" class="logo">Sweet Bites Bakery</a>
+        <nav>
+            <a href="index.html">Home</a>
+            <a href="about.html">About</a>
+            <a href="products.html" aria-current="page">Menu</a>
+            <a href="enquiry.html">Order</a>
+            <a href="contact.html">Contact</a>
+        </nav>
+    </header>
 
-  <main>
-    <h2>Fresh Baked Goods</h2>
-    <ul>
-      <li>Chocolate Cake – R120</li>
-      <li>Sourdough Bread – R40</li>
-      <li>Butter Croissant – R20</li>
-      <li>Cupcakes (6 pack) – R90</li>
-      <li>Cheesecake – R150</li>
-    </ul>
-  </main>
+    <main class="container">
+        <h1>Our Menu</h1>
+        
+        <section style="margin-bottom: var(--space-lg);">
+            <h2>Cupcakes</h2>
+            <ul class="grid">
+                <li>Vanilla (6) — R60</li>
+                <li>Chocolate (6) — R65</li>
+                <li>Red Velvet (6) — R75</li>
+            </ul>
+        </section>
 
-  <footer>
-    <p>© 2025 Sweet Bites Bakery</p>
-  </footer>
+        <section style="margin-bottom: var(--space-lg);">
+            <h2>Cakes</h2>
+            <ul class="grid">
+                <li>Chocolate 20cm — R220</li>
+                <li>Vanilla 20cm — R210</li>
+                <li>Carrot 20cm — R240</li>
+            </ul>
+            <p>+R20 for custom messages</p>
+        </section>
+
+        <section style="margin-bottom: var(--space-lg);">
+            <h2>Bread</h2>
+            <ul class="grid">
+                <li>Sourdough — R40</li>
+                <li>Seeded — R35</li>
+                <li>White — R25</li>
+            </ul>
+        </section>
+
+        <section style="margin-bottom: var(--space-lg);">
+            <h2>Pastries</h2>
+            <ul class="grid">
+                <li>Croissants (4) — R45</li>
+                <li>Cinnamon Rolls (4) — R55</li>
+                <li>Mini Tarts (6) — R70</li>
+            </ul>
+        </section>
+
+        <a class="btn" href="enquiry.html">Place Order</a>
+    </main>
+
+    <footer class="container">
+        <p>© 2018–2025 Sweet Bites Bakery • Cape Town • <a href="tel:+27621234567">+27 62 123 4567</a></p>
+    </footer>
 </body>
 </html>
