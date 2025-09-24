@@ -6,6 +6,7 @@
     <title>Sweet Bites Bakery | Home</title>
     <link rel="stylesheet" href="css/styles.css">
     <link href="https://fonts.googleapis.com/css2?family=Pacifico&family=Poppins:wght@400;500;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <meta name="description" content="Family-owned bakery in Cape Town. Order cupcakes, cakes, breads and pastries.">
 </head>
 <body>
@@ -22,6 +23,7 @@
 
     <main class="container">
         <section class="hero">
+            <img src="https://images.unsplash.com/photo-1558961363-fa8fdf82db35?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80" alt="Sweet Bites Bakery Interior" class="hero-image">
             <h1>Fresh. Simple. Affordable.</h1>
             <p>We bake daily in Cape Town. Pick up or order on WhatsApp.</p>
             <a class="btn" href="https://wa.me/27621234567?text=Hi%20Sweet%20Bites%2C%20I%27d%20like%20to%20order">Order on WhatsApp</a>
@@ -29,12 +31,28 @@
 
         <section>
             <h2>Menu Highlights</h2>
-            <ul class="grid">
-                <li>Vanilla Cupcakes (6) — R60</li>
-                <li>Chocolate Cake (20cm) — R220</li>
-                <li>Butter Croissants (4) — R45</li>
-                <li>Sourdough Loaf — R40</li>
-            </ul>
+            <div class="grid">
+                <div class="product-card">
+                    <i class="fas fa-birthday-cake product-icon"></i>
+                    <h3>Vanilla Cupcakes (6)</h3>
+                    <p>R60</p>
+                </div>
+                <div class="product-card">
+                    <i class="fas fa-cake product-icon"></i>
+                    <h3>Chocolate Cake (20cm)</h3>
+                    <p>R220</p>
+                </div>
+                <div class="product-card">
+                    <i class="fas fa-bread-slice product-icon"></i>
+                    <h3>Butter Croissants (4)</h3>
+                    <p>R45</p>
+                </div>
+                <div class="product-card">
+                    <i class="fas fa-wheat-alt product-icon"></i>
+                    <h3>Sourdough Loaf</h3>
+                    <p>R40</p>
+                </div>
+            </div>
             <p><a class="link" href="products.html">See full menu →</a></p>
         </section>
     </main>
