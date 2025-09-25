@@ -73,12 +73,6 @@ Contact Information
 
 · Locations: Cape Town CBD & Claremont
 
-Project Links
-
-· Assignment Brief: View Assignment Document
-· Design Mockups: View Design Files
-· Source Code: https://github.com/craigtsikiwa/sweet-bites-bakery
-
 Student Information
 
 · Name: Craig Tsikiwa
