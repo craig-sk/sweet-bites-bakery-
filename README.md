@@ -1,4 +1,4 @@
-Sweet Bites Bakery - Website Project
+**Sweet Bites Bakery - Website Project**
 
 Project Overview
 
@@ -20,7 +20,7 @@ Features
 
 · Cross-browser compatible
 
-Pages Included
+**Pages Included**
 
 1. Homepage (index.html) - Hero section with menu highlights
   
@@ -32,7 +32,7 @@ Pages Included
    
 9. Contact (contact.html) - Contact details and location maps
 
-Technical Specifications
+**Technical Specifications**
 
 · Languages: HTML5, CSS3, JavaScript
 
@@ -49,7 +49,7 @@ Technical Specifications
 
 
 
-Changelog
+**Changelog**
 
 Part 2 Changes (CSS Styling & Responsive Design)
 
@@ -73,7 +73,7 @@ Part 2 Changes (CSS Styling & Responsive Design)
 
 
 
-Part 1 Feedback Corrections
+**Part 1 Feedback Corrections**
 
 · Fixed navigation menu consistency
 
@@ -85,7 +85,7 @@ Part 1 Feedback Corrections
 
 · Improved semantic HTML structure
 
-Browser Compatibility
+**Browser Compatibility**
 
 · Chrome (latest versions)
 
@@ -99,7 +99,7 @@ Browser Compatibility
 
 
 
-Contact Information
+**Contact Information**
 
 · Email: hello@sweetbites.co.za
 
@@ -109,7 +109,7 @@ Contact Information
 
 · Locations: Cape Town CBD & Claremont
 
-Student Information
+**Student Information**
 
 · Name: Craig Tsikiwa
 
@@ -119,7 +119,7 @@ Student Information
 
 
 
-Messages to Lecturer
+**Messages to Lecturer**
 
 · All Part 1 feedback has been addressed and implemented
 
@@ -133,7 +133,7 @@ Messages to Lecturer
 
 
 
-References
+**References**
 
 All images are sourced from Unsplash and loaded via direct URLs:
 
@@ -176,4 +176,4 @@ Bread:
 
 · Original project proposal document
 
-This README will be updated as the project progresses through additional development phases.
+***This README will be updated as the project progresses through additional development phases.***
