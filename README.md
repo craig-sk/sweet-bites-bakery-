@@ -47,6 +47,8 @@ Technical Specifications
 · Domain: sweetbites.co.za (proposed)
 
 
+
+
 Changelog
 
 Part 2 Changes (CSS Styling & Responsive Design)
@@ -68,6 +70,8 @@ Part 2 Changes (CSS Styling & Responsive Design)
 · Enhanced about page with Cape Town storyline
 
 · Improved form styling and user experience
+
+
 
 Part 1 Feedback Corrections
 
@@ -94,6 +98,7 @@ Browser Compatibility
 · Mobile browsers (iOS Safari, Chrome Mobile)
 
 
+
 Contact Information
 
 · Email: hello@sweetbites.co.za
@@ -112,6 +117,8 @@ Student Information
 
 · Assignment: Part 2 - CSS Styling & Responsive Design
 
+
+
 Messages to Lecturer
 
 · All Part 1 feedback has been addressed and implemented
@@ -124,7 +131,10 @@ Messages to Lecturer
 
 · Ready for review and grading
 
+
+
 References
+
 All images are sourced from Unsplash and loaded via direct URLs:
 
 Homepage Images
