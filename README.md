@@ -66,8 +66,11 @@ Browser Compatibility
 Contact Information
 
 · Email: hello@sweetbites.co.za
+
 · Phone: +27 62 123 4567
+
 · WhatsApp: https://wa.me/27621234567?text=Hi%20Sweet%20Bites%2C%20I%27d%20like%20to%20order
+
 · Locations: Cape Town CBD & Claremont
 
 Project Links
