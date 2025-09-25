@@ -135,7 +135,7 @@ Part 2 Changes (CSS Styling & Responsive Design)
 
 **References**
 
-All images are sourced from Unsplash and loaded via direct URLs:
+***All images are sourced from Unsplash and loaded via direct URLs:***
 
 Homepage Images
 
