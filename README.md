@@ -23,13 +23,13 @@ Features
 Pages Included
 
 1. Homepage (index.html) - Hero section with menu highlights
-2. 
+  
 3. About Us (about.html) - Cape Town bakery story and mission
-4. 
+   
 5. Menu (products.html) - Full product catalog with prices
-6. 
+   
 7. Order (enquiry.html) - Order form and WhatsApp ordering
-8. 
+   
 9. Contact (contact.html) - Contact details and location maps
 
 Technical Specifications
