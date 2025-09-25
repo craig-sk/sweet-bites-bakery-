@@ -7,28 +7,43 @@ A responsive website for Sweet Bites Bakery, a family-owned bakery in Cape Town 
 Features
 
 · Responsive design for desktop, tablet, and mobile
+
 · Online ordering via WhatsApp integration
+
 · Product menu with high-quality images
+
 · Contact forms and location maps
+
 · Warm pastel color scheme (brown, cream, pink)
+
 · Font Awesome icons and Google Fonts
+
 · Cross-browser compatible
 
 Pages Included
 
 1. Homepage (index.html) - Hero section with menu highlights
-2. About Us (about.html) - Cape Town bakery story and mission
-3. Menu (products.html) - Full product catalog with prices
-4. Order (enquiry.html) - Order form and WhatsApp ordering
-5. Contact (contact.html) - Contact details and location maps
+2. 
+3. About Us (about.html) - Cape Town bakery story and mission
+4. 
+5. Menu (products.html) - Full product catalog with prices
+6. 
+7. Order (enquiry.html) - Order form and WhatsApp ordering
+8. 
+9. Contact (contact.html) - Contact details and location maps
 
 Technical Specifications
 
 · Languages: HTML5, CSS3, JavaScript
+
 · Framework: Pure CSS (No external frameworks)
+
 · Icons: Font Awesome 6.0
+
 · Fonts: Pacifico (headings), Poppins (body)
+
 · Hosting: GitHub Pages
+
 · Domain: sweetbites.co.za (proposed)
 
 
@@ -37,29 +52,45 @@ Changelog
 Part 2 Changes (CSS Styling & Responsive Design)
 
 · Created external CSS stylesheet with proper linking
+
 · Implemented warm pastel color scheme as specified
+
 · Added responsive design with mobile breakpoints
+
 · Integrated Font Awesome icons throughout site
+
 · Added high-quality food images from Unsplash
+
 · Fixed navigation consistency across all pages
+
 · Resolved image display issues on products page
+
 · Enhanced about page with Cape Town storyline
+
 · Improved form styling and user experience
 
 Part 1 Feedback Corrections
 
 · Fixed navigation menu consistency
+
 · Updated product pricing to match proposal
+
 · Added proper meta descriptions and SEO tags
+
 · Corrected contact information formatting
+
 · Improved semantic HTML structure
 
 Browser Compatibility
 
 · Chrome (latest versions)
+
 · Firefox (latest versions)
+
 · Safari (latest versions)
+
 · Edge (latest versions)
+
 · Mobile browsers (iOS Safari, Chrome Mobile)
 
 
@@ -76,15 +107,21 @@ Contact Information
 Student Information
 
 · Name: Craig Tsikiwa
+
 · Course: Web Development
+
 · Assignment: Part 2 - CSS Styling & Responsive Design
 
 Messages to Lecturer
 
 · All Part 1 feedback has been addressed and implemented
+
 · CSS styling completed with responsive design
+
 · All images are properly sourced and displayed
+
 · Website meets all assignment requirements
+
 · Ready for review and grading
 
 References
@@ -122,8 +159,11 @@ Bread:
 
 
 · Font Awesome (Icons)
+
 · Google Fonts (Typography)
+
 · Google Maps (Location embeds)
+
 · Original project proposal document
 
 This README will be updated as the project progresses through additional development phases.
