@@ -102,26 +102,28 @@ Products Page Images
 Cupcakes:
 
 · Vanilla Cupcakes: https://images.unsplash.com/photo-1486427944299-d1955d23e34d
+
 · Chocolate Cupcakes: https://images.unsplash.com/photo-1614707267537-b85aaf00c4b7
+
 · Red Velvet Cupcakes: https://images.unsplash.com/photo-1587668178277-295251f900ce
 
 Cakes:
 
 · Chocolate Cake: https://images.unsplash.com/photo-1578985545062-69928b1d9587
+
 · Vanilla Cake: https://images.unsplash.com/photo-1563729784474-d77dbb933a9e
+
 · Carrot Cake: https://images.unsplash.com/photo-1606890737304-57a1ca8a5b62
 
 Bread:
 
 · Sourdough Bread: https://images.unsplash.com/photo-1509440159596-0249088772ff
+
 · Seeded Bread: https://images.unsplash.com/photo-1549931319-a545dcf3bc73
+
 · White Bread: https://images.unsplash.com/photo-1586201375761-83865001e31c
 
-Pastries:
 
-· Butter Croissants: https://images.unsplash.com/photo-1555507036-ab794f27d2e9
-· Cinnamon Rolls: https://images.unsplash.com/photo-1590080875485-7d5acb6f45e3
-· Mini Tarts: https://images.unsplash.com/photo-1563720223180-12f6c60d4c6a
 · Font Awesome (Icons)
 · Google Fonts (Typography)
 · Google Maps (Location embeds)
