@@ -11,13 +11,25 @@
 <body>
     <header class="container">
         <a href="index.html" class="logo">Sweet Bites Bakery</a>
+        <div class="cart-icon">
+            🛒
+            <span class="cart-count"></span>
+        </div>
+        <button class="mobile-menu-btn">☰</button>
         <nav>
             <a href="index.html">Home</a>
-            <a href="about.html" style="color: #5d4037; font-weight: bold;">About</a>
+            <a href="about.html" aria-current="page">About</a>
             <a href="products.html">Menu</a>
             <a href="enquiry.html">Order</a>
             <a href="contact.html">Contact</a>
         </nav>
+        <div class="mobile-nav">
+            <a href="index.html">Home</a>
+            <a href="about.html">About</a>
+            <a href="products.html">Menu</a>
+            <a href="enquiry.html">Order</a>
+            <a href="contact.html">Contact</a>
+        </div>
     </header>
 
     <main class="container">
@@ -45,17 +57,17 @@
         <section>
             <h2 style="display: flex; align-items: center;"><i class="fas fa-heart" style="margin-right: 10px;"></i>Why Choose Sweet Bites Bakery</h2>
             <div class="grid">
-                <div class="product-card">
+                <div class="product-card fade-in">
                     <i class="fas fa-leaf" style="font-size: 3rem; margin-bottom: 1rem; color: #5d4037;"></i>
                     <h3>Fresh Cape Town Ingredients</h3>
                     <p>Daily baked with local Cape Town ingredients</p>
                 </div>
-                <div class="product-card">
+                <div class="product-card fade-in">
                     <i class="fas fa-home" style="font-size: 3rem; margin-bottom: 1rem; color: #5d4037;"></i>
                     <h3>Proudly Cape Town Owned</h3>
                     <p>Family business rooted in Cape Town since 2018</p>
                 </div>
-                <div class="product-card">
+                <div class="product-card fade-in">
                     <i class="fas fa-map-marker-alt" style="font-size: 3rem; margin-bottom: 1rem; color: #5d4037;"></i>
                     <h3>Convenient Cape Town Locations</h3>
                     <p>Multiple pickup points across Cape Town</p>
@@ -67,5 +79,18 @@
     <footer class="container">
         <p>© 2018–2025 Sweet Bites Bakery • Proudly serving Cape Town • <a href="tel:+27621234567">+27 62 123 4567</a></p>
     </footer>
+
+    <div class="cart-overlay"></div>
+    <div class="cart-modal">
+        <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 2rem;">
+            <h2>Your Cart</h2>
+            <button class="close-cart" style="background: none; border: none; font-size: 1.5rem; cursor: pointer;">×</button>
+        </div>
+        <div class="cart-items"></div>
+        <div class="cart-total"></div>
+        <button class="btn" style="width: 100%;">Continue Shopping</button>
+    </div>
+
+    <script src="js/main.js"></script>
 </body>
-</html>
+                    </html>
