@@ -11,6 +11,11 @@
 <body>
     <header class="container">
         <a href="index.html" class="logo">Sweet Bites Bakery</a>
+        <div class="cart-icon">
+            🛒
+            <span class="cart-count"></span>
+        </div>
+        <button class="mobile-menu-btn">☰</button>
         <nav>
             <a href="index.html">Home</a>
             <a href="about.html">About</a>
@@ -18,18 +23,25 @@
             <a href="enquiry.html" aria-current="page">Order</a>
             <a href="contact.html">Contact</a>
         </nav>
+        <div class="mobile-nav">
+            <a href="index.html">Home</a>
+            <a href="about.html">About</a>
+            <a href="products.html">Menu</a>
+            <a href="enquiry.html">Order</a>
+            <a href="contact.html">Contact</a>
+        </div>
     </header>
 
     <main class="container">
         <h1>Place Your Order</h1>
         
-        <section style="margin-bottom: var(--space-lg);">
+        <section style="margin-bottom: 3rem;">
             <p>Order by WhatsApp or use the enquiry form. Replies during business hours.</p>
-            <div style="display: flex; gap: var(--space-sm); flex-wrap: wrap;">
+            <div style="display: flex; gap: 1rem; flex-wrap: wrap;">
                 <a class="btn" href="https://wa.me/27621234567?text=Hi%20Sweet%20Bites%2C%20I%27d%20like%20to%20order">
                     <i class="fab fa-whatsapp"></i> Order via WhatsApp
                 </a>
-                <a class="btn" href="products.html" style="background-color: var(--light-pink); color: var(--dark-brown);">
+                <a class="btn" href="products.html" style="background-color: #d291bc; color: white;">
                     <i class="fas fa-utensils"></i> View Menu
                 </a>
             </div>
@@ -65,5 +77,18 @@
     <footer class="container">
         <p>© 2018–2025 Sweet Bites Bakery • Cape Town • <a href="tel:+27621234567">+27 62 123 4567</a></p>
     </footer>
+
+    <div class="cart-overlay"></div>
+    <div class="cart-modal">
+        <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 2rem;">
+            <h2>Your Cart</h2>
+            <button class="close-cart" style="background: none; border: none; font-size: 1.5rem; cursor: pointer;">×</button>
+        </div>
+        <div class="cart-items"></div>
+        <div class="cart-total"></div>
+        <button class="btn" style="width: 100%;">Continue Shopping</button>
+    </div>
+
+    <script src="js/main.js"></script>
 </body>
 </html>
