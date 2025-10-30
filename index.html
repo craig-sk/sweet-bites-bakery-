@@ -12,6 +12,11 @@
 <body>
     <header class="container">
         <a href="index.html" class="logo">Sweet Bites Bakery</a>
+        <div class="cart-icon">
+            🛒
+            <span class="cart-count"></span>
+        </div>
+        <button class="mobile-menu-btn">☰</button>
         <nav>
             <a href="index.html" aria-current="page">Home</a>
             <a href="about.html">About</a>
@@ -19,6 +24,13 @@
             <a href="enquiry.html">Order</a>
             <a href="contact.html">Contact</a>
         </nav>
+        <div class="mobile-nav">
+            <a href="index.html">Home</a>
+            <a href="about.html">About</a>
+            <a href="products.html">Menu</a>
+            <a href="enquiry.html">Order</a>
+            <a href="contact.html">Contact</a>
+        </div>
     </header>
 
     <main class="container">
@@ -32,25 +44,29 @@
         <section>
             <h2>Menu Highlights</h2>
             <div class="grid">
-                <div class="product-card">
+                <div class="product-card fade-in">
                     <i class="fas fa-birthday-cake product-icon"></i>
                     <h3>Vanilla Cupcakes (6)</h3>
                     <p>R60</p>
+                    <button class="btn add-to-cart">Add to Cart</button>
                 </div>
-                <div class="product-card">
+                <div class="product-card fade-in">
                     <i class="fas fa-cake product-icon"></i>
                     <h3>Chocolate Cake (20cm)</h3>
                     <p>R220</p>
+                    <button class="btn add-to-cart">Add to Cart</button>
                 </div>
-                <div class="product-card">
+                <div class="product-card fade-in">
                     <i class="fas fa-bread-slice product-icon"></i>
                     <h3>Butter Croissants (4)</h3>
                     <p>R45</p>
+                    <button class="btn add-to-cart">Add to Cart</button>
                 </div>
-                <div class="product-card">
+                <div class="product-card fade-in">
                     <i class="fas fa-wheat-alt product-icon"></i>
                     <h3>Sourdough Loaf</h3>
                     <p>R40</p>
+                    <button class="btn add-to-cart">Add to Cart</button>
                 </div>
             </div>
             <p><a class="link" href="products.html">See full menu →</a></p>
@@ -60,5 +76,18 @@
     <footer class="container">
         <p>© 2018–2025 Sweet Bites Bakery • Cape Town • <a href="tel:+27621234567">+27 62 123 4567</a></p>
     </footer>
+
+    <div class="cart-overlay"></div>
+    <div class="cart-modal">
+        <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 2rem;">
+            <h2>Your Cart</h2>
+            <button class="close-cart" style="background: none; border: none; font-size: 1.5rem; cursor: pointer;">×</button>
+        </div>
+        <div class="cart-items"></div>
+        <div class="cart-total"></div>
+        <button class="btn" style="width: 100%;">Continue Shopping</button>
+    </div>
+
+    <script src="js/main.js"></script>
 </body>
 </html>
