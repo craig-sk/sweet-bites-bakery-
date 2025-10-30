@@ -1,31 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <div class="cart-icon">
-    🛒
-    <span class="cart-count"></span>
-</div>
-
-<button class="mobile-menu-btn">☰</button>
-
-<div class="mobile-nav">
-    <a href="index.html">Home</a>
-    <a href="about.html">About</a>
-    <a href="products.html">Menu</a>
-    <a href="enquiry.html">Order</a>
-    <a href="contact.html">Contact</a>
-</div>
-
-<div class="cart-overlay"></div>
-<div class="cart-modal">
-    <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 2rem;">
-        <h2>Your Cart</h2>
-        <button class="close-cart" style="background: none; border: none; font-size: 1.5rem; cursor: pointer;">×</button>
-    </div>
-    <div class="cart-items"></div>
-    <div class="cart-total"></div>
-    <button class="btn" style="width: 100%;" onclick="app.closeCart()">Continue Shopping</button>
-</div>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Menu - Sweet Bites Bakery</title>
@@ -36,6 +11,11 @@
 <body>
     <header class="container">
         <a href="index.html" class="logo">Sweet Bites Bakery</a>
+        <div class="cart-icon">
+            🛒
+            <span class="cart-count"></span>
+        </div>
+        <button class="mobile-menu-btn">☰</button>
         <nav>
             <a href="index.html">Home</a>
             <a href="about.html">About</a>
@@ -43,100 +23,135 @@
             <a href="enquiry.html">Order</a>
             <a href="contact.html">Contact</a>
         </nav>
+        <div class="mobile-nav">
+            <a href="index.html">Home</a>
+            <a href="about.html">About</a>
+            <a href="products.html">Menu</a>
+            <a href="enquiry.html">Order</a>
+            <a href="contact.html">Contact</a>
+        </div>
     </header>
 
     <main class="container">
         <h1>Our Menu</h1>
         
-        <section style="margin-bottom: var(--space-lg);">
+        <section style="margin-bottom: 3rem;">
             <h2><i class="fas fa-cupcake" style="margin-right: 10px;"></i>Cupcakes</h2>
             <div class="grid">
-                <div class="product-card">
+                <div class="product-card fade-in">
                     <img src="https://images.unsplash.com/photo-1486427944299-d1955d23e34d?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80" alt="Vanilla Cupcakes" class="product-image">
                     <h3>Vanilla Cupcakes (6)</h3>
                     <p>R60</p>
+                    <button class="btn add-to-cart">Add to Cart</button>
                 </div>
-                <div class="product-card">
+                <div class="product-card fade-in">
                     <img src="https://images.unsplash.com/photo-1571115177098-24a42d2309e8?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80" alt="Chocolate Cupcakes" class="product-image">
                     <h3>Chocolate Cupcakes (6)</h3>
                     <p>R65</p>
+                    <button class="btn add-to-cart">Add to Cart</button>
                 </div>
-                <div class="product-card">
+                <div class="product-card fade-in">
                     <img src="https://images.unsplash.com/photo-1587668178277-295251f900ce?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80" alt="Red Velvet Cupcakes" class="product-image">
                     <h3>Red Velvet Cupcakes (6)</h3>
                     <p>R75</p>
+                    <button class="btn add-to-cart">Add to Cart</button>
                 </div>
             </div>
         </section>
 
-        <section style="margin-bottom: var(--space-lg);">
+        <section style="margin-bottom: 3rem;">
             <h2><i class="fas fa-birthday-cake" style="margin-right: 10px;"></i>Cakes</h2>
             <div class="grid">
-                <div class="product-card">
-                    <img src=" https://images.unsplash.com/photo-1578985545062-69928b1d9587" alt="Chocolate Cake" class="product-image">
+                <div class="product-card fade-in">
+                    <img src="https://images.unsplash.com/photo-1578985545062-69928b1d9587?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80" alt="Chocolate Cake" class="product-image">
                     <h3>Chocolate Cake (20cm)</h3>
                     <p>R220</p>
+                    <button class="btn add-to-cart">Add to Cart</button>
                 </div>
-                <div class="product-card">
+                <div class="product-card fade-in">
                     <img src="https://images.unsplash.com/photo-1563729784474-d77dbb933a9e?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80" alt="Vanilla Cake" class="product-image">
                     <h3>Vanilla Cake (20cm)</h3>
                     <p>R210</p>
+                    <button class="btn add-to-cart">Add to Cart</button>
                 </div>
-                <div class="product-card">
+                <div class="product-card fade-in">
                     <img src="https://images.unsplash.com/photo-1606890737304-57a1ca8a5b62?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80" alt="Carrot Cake" class="product-image">
                     <h3>Carrot Cake (20cm)</h3>
                     <p>R240</p>
+                    <button class="btn add-to-cart">Add to Cart</button>
                 </div>
             </div>
             <p>+R20 for custom messages</p>
         </section>
 
-        <section style="margin-bottom: var(--space-lg);">
+        <section style="margin-bottom: 3rem;">
             <h2><i class="fas fa-bread-slice" style="margin-right: 10px;"></i>Bread</h2>
             <div class="grid">
-                <div class="product-card">
+                <div class="product-card fade-in">
                     <img src="https://images.unsplash.com/photo-1509440159596-0249088772ff?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80" alt="Sourdough Bread" class="product-image">
                     <h3>Sourdough Loaf</h3>
                     <p>R40</p>
+                    <button class="btn add-to-cart">Add to Cart</button>
                 </div>
-                <div class="product-card">
+                <div class="product-card fade-in">
                     <img src="https://images.unsplash.com/photo-1549931319-a545dcf3bc73?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80" alt="Seeded Bread" class="product-image">
                     <h3>Seeded Loaf</h3>
                     <p>R35</p>
+                    <button class="btn add-to-cart">Add to Cart</button>
                 </div>
-                <div class="product-card">
+                <div class="product-card fade-in">
                     <img src="https://images.unsplash.com/photo-1586201375761-83865001e31c?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80" alt="White Bread" class="product-image">
                     <h3>White Loaf</h3>
                     <p>R25</p>
+                    <button class="btn add-to-cart">Add to Cart</button>
                 </div>
             </div>
         </section>
-        <section>
-    <h2>Cupcakes</h2>
-    <ul class="grid">
-        <li class="fade-in">
-            <h3>Vanilla Cupcakes (6)</h3>
-            <p>R60</p>
-            <button class="btn add-to-cart" style="margin-top: 1rem;">Add to Cart</button>
-        </li>
-        <li class="fade-in">
-            <h3>Chocolate Cupcakes (6)</h3>
-            <p>R65</p>
-            <button class="btn add-to-cart" style="margin-top: 1rem;">Add to Cart</button>
-        </li>
-        <li class="fade-in">
-            <h3>Red Velvet Cupcakes (6)</h3>
-            <p>R75</p>
-            <button class="btn add-to-cart" style="margin-top: 1rem;">Add to Cart</button>
-        </li>
-    </ul>
+
+        <section style="margin-bottom: 3rem;">
+            <h2><i class="fas fa-cookie" style="margin-right: 10px;"></i>Pastries</h2>
+            <div class="grid">
+                <div class="product-card fade-in">
+                    <img src="https://images.unsplash.com/photo-1555507036-ab794f24d8c7?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80" alt="Croissants" class="product-image">
+                    <h3>Butter Croissants (4)</h3>
+                    <p>R45</p>
+                    <button class="btn add-to-cart">Add to Cart</button>
+                </div>
+                <div class="product-card fade-in">
+                    <img src="https://images.unsplash.com/photo-1603532648955-039310d9ed75?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80" alt="Cinnamon Rolls" class="product-image">
+                    <h3>Cinnamon Rolls (4)</h3>
+                    <p>R55</p>
+                    <button class="btn add-to-cart">Add to Cart</button>
+                </div>
+                <div class="product-card fade-in">
+                    <img src="https://images.unsplash.com/photo-1563729784474-d77dbb933a9e?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80" alt="Mini Tarts" class="product-image">
+                    <h3>Mini Tarts (6)</h3>
+                    <p>R70</p>
+                    <button class="btn add-to-cart">Add to Cart</button>
+                </div>
+            </div>
         </section>
 
-        <a class="btn" href="enquiry.html">Place Order</a>
+        <div style="text-align: center; margin-top: 3rem;">
+            <a class="btn" href="enquiry.html" style="font-size: 1.2rem; padding: 1rem 2rem;">Place Order</a>
+        </div>
     </main>
 
     <footer class="container">
         <p>© 2018–2025 Sweet Bites Bakery • Cape Town • <a href="tel:+27621234567">+27 62 123 4567</a></p>
     </footer>
+
+    <div class="cart-overlay"></div>
+    <div class="cart-modal">
+        <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 2rem;">
+            <h2>Your Cart</h2>
+            <button class="close-cart" style="background: none; border: none; font-size: 1.5rem; cursor: pointer;">×</button>
+        </div>
+        <div class="cart-items"></div>
+        <div class="cart-total"></div>
+        <button class="btn" style="width: 100%;">Continue Shopping</button>
+    </div>
+
+    <script src="js/main.js"></script>
 </body>
 </html>
