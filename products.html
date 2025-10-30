@@ -1,6 +1,31 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+    <div class="cart-icon">
+    🛒
+    <span class="cart-count"></span>
+</div>
+
+<button class="mobile-menu-btn">☰</button>
+
+<div class="mobile-nav">
+    <a href="index.html">Home</a>
+    <a href="about.html">About</a>
+    <a href="products.html">Menu</a>
+    <a href="enquiry.html">Order</a>
+    <a href="contact.html">Contact</a>
+</div>
+
+<div class="cart-overlay"></div>
+<div class="cart-modal">
+    <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 2rem;">
+        <h2>Your Cart</h2>
+        <button class="close-cart" style="background: none; border: none; font-size: 1.5rem; cursor: pointer;">×</button>
+    </div>
+    <div class="cart-items"></div>
+    <div class="cart-total"></div>
+    <button class="btn" style="width: 100%;" onclick="app.closeCart()">Continue Shopping</button>
+</div>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Menu - Sweet Bites Bakery</title>
