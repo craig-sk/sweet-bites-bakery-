@@ -37,8 +37,10 @@ class SweetBitesApp {
 
         document.querySelectorAll('.add-to-cart').forEach(btn => {
             btn.addEventListener('click', (e) => {
-                const product = e.target.closest('.product-card') || e.target.closest('li');
-                this.addToCart(product);
+                const product = e.target.closest('.product-card');
+                if (product) {
+                    this.addToCart(product);
+                }
             });
         });
 
@@ -58,6 +60,13 @@ class SweetBitesApp {
         const closeCart = document.querySelector('.close-cart');
         if (closeCart) {
             closeCart.addEventListener('click', () => {
+                this.closeCart();
+            });
+        }
+
+        const continueShopping = document.querySelector('.cart-modal .btn');
+        if (continueShopping) {
+            continueShopping.addEventListener('click', () => {
                 this.closeCart();
             });
         }
@@ -125,7 +134,7 @@ class SweetBitesApp {
         this.cartItems.innerHTML = '';
         
         if (this.cart.length === 0) {
-            this.cartItems.innerHTML = '<p>Your cart is empty</p>';
+            this.cartItems.innerHTML = '<p style="text-align: center; padding: 2rem;">Your cart is empty</p>';
             if (this.cartTotal) {
                 this.cartTotal.textContent = 'Total: R0';
             }
@@ -145,7 +154,7 @@ class SweetBitesApp {
                     </div>
                 </div>
                 <div>R${item.price * item.quantity}</div>
-                <button class="remove-item" style="color: #d291bc; border: none; background: none; cursor: pointer;">×</button>
+                <button class="remove-item" style="color: #d291bc; border: none; background: none; cursor: pointer; font-size: 1.2rem;">×</button>
             `;
             
             cartItem.querySelector('.minus').addEventListener('click', () => {
@@ -232,7 +241,10 @@ class SweetBitesApp {
         successMsg.className = 'success-message active';
         successMsg.textContent = message;
         
-        document.querySelector('main').prepend(successMsg);
+        const main = document.querySelector('main');
+        if (main) {
+            main.prepend(successMsg);
+        }
         
         setTimeout(() => {
             successMsg.remove();
@@ -240,4 +252,12 @@ class SweetBitesApp {
     }
 }
 
-const app = new SweetBitesApp();
+document.addEventListener('DOMContentLoaded', function() {
+    const app = new SweetBitesApp();
+    
+    document.body.classList.add('loaded');
+});
+
+window.addEventListener('beforeunload', () => {
+    document.body.classList.add('unloading');
+});
