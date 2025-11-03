@@ -20,62 +20,33 @@ class SweetBitesApp {
             mobileBtn.addEventListener('click', () => {
                 mobileNav.classList.toggle('active');
             });
-
-            document.addEventListener('click', (e) => {
-                if (!mobileNav.contains(e.target) && !mobileBtn.contains(e.target)) {
-                    mobileNav.classList.remove('active');
-                }
-            });
         }
     }
 
     setupCart() {
-        this.cartModal = document.querySelector('.cart-modal');
-        this.cartOverlay = document.querySelector('.cart-overlay');
-        this.cartItems = document.querySelector('.cart-items');
-        this.cartTotal = document.querySelector('.cart-total');
-
         document.querySelectorAll('.add-to-cart').forEach(btn => {
             btn.addEventListener('click', (e) => {
                 const product = e.target.closest('.product-card');
-                if (product) {
-                    this.addToCart(product);
-                }
+                this.addToCart(product);
             });
         });
 
-        const cartIcon = document.querySelector('.cart-icon');
-        if (cartIcon) {
-            cartIcon.addEventListener('click', () => {
-                this.openCart();
-            });
-        }
+        document.querySelector('.cart-icon').addEventListener('click', () => {
+            this.openCart();
+        });
 
-        if (this.cartOverlay) {
-            this.cartOverlay.addEventListener('click', () => {
-                this.closeCart();
-            });
-        }
+        document.querySelector('.cart-overlay').addEventListener('click', () => {
+            this.closeCart();
+        });
 
-        const closeCart = document.querySelector('.close-cart');
-        if (closeCart) {
-            closeCart.addEventListener('click', () => {
-                this.closeCart();
-            });
-        }
-
-        const continueShopping = document.querySelector('.cart-modal .btn');
-        if (continueShopping) {
-            continueShopping.addEventListener('click', () => {
-                this.closeCart();
-            });
-        }
+        document.querySelector('.close-cart').addEventListener('click', () => {
+            this.closeCart();
+        });
     }
 
     addToCart(product) {
-        const name = product.querySelector('h3')?.textContent || 'Product';
-        const priceText = product.querySelector('p')?.textContent || 'R0';
-        const price = parseInt(priceText.replace('R', '')) || 0;
+        const name = product.querySelector('h3').textContent;
+        const price = parseInt(product.querySelector('p').textContent.replace('R', ''));
         
         const existingItem = this.cart.find(item => item.name === name);
         
@@ -114,30 +85,25 @@ class SweetBitesApp {
     }
 
     openCart() {
-        if (this.cartModal) {
-            this.cartModal.classList.add('active');
-            this.cartOverlay.classList.add('active');
-            this.renderCartItems();
-        }
+        document.querySelector('.cart-modal').classList.add('active');
+        document.querySelector('.cart-overlay').classList.add('active');
+        this.renderCartItems();
     }
 
     closeCart() {
-        if (this.cartModal) {
-            this.cartModal.classList.remove('active');
-            this.cartOverlay.classList.remove('active');
-        }
+        document.querySelector('.cart-modal').classList.remove('active');
+        document.querySelector('.cart-overlay').classList.remove('active');
     }
 
     renderCartItems() {
-        if (!this.cartItems) return;
+        const cartItems = document.querySelector('.cart-items');
+        const cartTotal = document.querySelector('.cart-total');
         
-        this.cartItems.innerHTML = '';
+        cartItems.innerHTML = '';
         
         if (this.cart.length === 0) {
-            this.cartItems.innerHTML = '<p style="text-align: center; padding: 2rem;">Your cart is empty</p>';
-            if (this.cartTotal) {
-                this.cartTotal.textContent = 'Total: R0';
-            }
+            cartItems.innerHTML = '<p>Your cart is empty</p>';
+            cartTotal.textContent = 'Total: R0';
             return;
         }
         
@@ -154,7 +120,7 @@ class SweetBitesApp {
                     </div>
                 </div>
                 <div>R${item.price * item.quantity}</div>
-                <button class="remove-item" style="color: #d291bc; border: none; background: none; cursor: pointer; font-size: 1.2rem;">×</button>
+                <button class="remove-item">×</button>
             `;
             
             cartItem.querySelector('.minus').addEventListener('click', () => {
@@ -169,23 +135,19 @@ class SweetBitesApp {
                 this.removeFromCart(index);
             });
             
-            this.cartItems.appendChild(cartItem);
+            cartItems.appendChild(cartItem);
         });
 
         const total = this.cart.reduce((sum, item) => sum + (item.price * item.quantity), 0);
-        if (this.cartTotal) {
-            this.cartTotal.textContent = `Total: R${total}`;
-        }
+        cartTotal.textContent = `Total: R${total}`;
     }
 
     updateCartDisplay() {
         const cartCount = document.querySelector('.cart-count');
         const totalItems = this.cart.reduce((sum, item) => sum + item.quantity, 0);
         
-        if (cartCount) {
-            cartCount.textContent = totalItems;
-            cartCount.style.display = totalItems > 0 ? 'flex' : 'none';
-        }
+        cartCount.textContent = totalItems;
+        cartCount.style.display = totalItems > 0 ? 'flex' : 'none';
     }
 
     saveCart() {
@@ -193,18 +155,13 @@ class SweetBitesApp {
     }
 
     setupAnimations() {
-        const observerOptions = {
-            threshold: 0.1,
-            rootMargin: '0px 0px -50px 0px'
-        };
-
         const observer = new IntersectionObserver((entries) => {
             entries.forEach(entry => {
                 if (entry.isIntersecting) {
                     entry.target.classList.add('visible');
                 }
             });
-        }, observerOptions);
+        });
 
         document.querySelectorAll('.fade-in').forEach(el => {
             observer.observe(el);
@@ -228,9 +185,8 @@ class SweetBitesApp {
         submitBtn.textContent = 'Sending...';
         
         setTimeout(() => {
-            this.showSuccess('Message sent successfully! We will contact you soon.');
+            this.showSuccess('Message sent successfully!');
             form.reset();
-            
             submitBtn.disabled = false;
             submitBtn.textContent = originalText;
         }, 2000);
@@ -241,10 +197,7 @@ class SweetBitesApp {
         successMsg.className = 'success-message active';
         successMsg.textContent = message;
         
-        const main = document.querySelector('main');
-        if (main) {
-            main.prepend(successMsg);
-        }
+        document.querySelector('main').prepend(successMsg);
         
         setTimeout(() => {
             successMsg.remove();
@@ -252,12 +205,4 @@ class SweetBitesApp {
     }
 }
 
-document.addEventListener('DOMContentLoaded', function() {
-    const app = new SweetBitesApp();
-    
-    document.body.classList.add('loaded');
-});
-
-window.addEventListener('beforeunload', () => {
-    document.body.classList.add('unloading');
-});
+const app = new SweetBitesApp();
