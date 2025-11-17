@@ -34,6 +34,22 @@
     </header>
 
     <main class="container">
+        <!-- Search Bar - First Thing Users See -->
+        <section style="margin: 2rem 0 3rem 0; text-align: center;">
+            <h1 style="margin-bottom: 1.5rem; color: #d291bc;">Find Your Favorite Treats</h1>
+            <div class="search-container" style="max-width: 700px; margin: 0 auto;">
+                <div style="position: relative;">
+                    <input type="text" id="menu-search" placeholder="What are you craving? Search cupcakes, cakes, bread, pastries..." 
+                           style="width: 100%; padding: 1.5rem 1.5rem 1.5rem 4rem; border: 3px solid #d291bc; border-radius: 50px; font-size: 1.2rem; font-family: 'Poppins', sans-serif; transition: all 0.3s ease; background: white; box-shadow: 0 5px 20px rgba(210, 145, 188, 0.2);"
+                           onfocus="this.style.borderColor='#87a96b'; this.style.boxShadow='0 5px 25px rgba(135, 169, 107, 0.3)'"
+                           onblur="this.style.borderColor='#d291bc'; this.style.boxShadow='0 5px 20px rgba(210, 145, 188, 0.2)'">
+                    <i class="fas fa-search" style="position: absolute; left: 1.8rem; top: 50%; transform: translateY(-50%); color: #d291bc; font-size: 1.5rem;"></i>
+                </div>
+                <div id="search-results" style="display: none; margin-top: 1rem; background: white; border-radius: 15px; box-shadow: 0 10px 30px rgba(0,0,0,0.15); max-height: 400px; overflow-y: auto; border: 2px solid #f0e6d9; z-index: 100;"></div>
+            </div>
+            <p style="margin-top: 1rem; color: #5a4a42; font-size: 1.1rem;">Quickly find what you're looking for from our delicious menu</p>
+        </section>
+
         <section class="hero">
             <h1>Fresh. Simple. Affordable.</h1>
             <p>We bake daily in Cape Town. Pick up or order on WhatsApp.</p>
@@ -72,18 +88,6 @@
 
         <section>
             <h2>Full Menu</h2>
-            
-            <!-- Search Bar -->
-            <div class="search-container" style="margin: 2rem 0; max-width: 600px; margin-left: auto; margin-right: auto;">
-                <div style="position: relative;">
-                    <input type="text" id="menu-search" placeholder="Type to search for cupcakes, cakes, bread, pastries..." 
-                           style="width: 100%; padding: 1.2rem 1.2rem 1.2rem 3.5rem; border: 2px solid #ddd; border-radius: 50px; font-size: 1.1rem; font-family: 'Poppins', sans-serif; transition: all 0.3s ease; background: white;"
-                           onfocus="this.style.borderColor='#d291bc'; this.style.boxShadow='0 0 0 3px rgba(210, 145, 188, 0.1)'"
-                           onblur="this.style.borderColor='#ddd'; this.style.boxShadow='none'">
-                    <i class="fas fa-search" style="position: absolute; left: 1.5rem; top: 50%; transform: translateY(-50%); color: #d291bc; font-size: 1.2rem;"></i>
-                </div>
-                <div id="search-results" style="display: none; margin-top: 0.5rem; background: white; border-radius: 15px; box-shadow: 0 10px 30px rgba(0,0,0,0.15); max-height: 400px; overflow-y: auto; border: 2px solid #f0e6d9; z-index: 100;"></div>
-            </div>
 
             <div class="menu-category">
                 <h3><i class="fas fa-cupcake"></i> Cupcakes</h3>
