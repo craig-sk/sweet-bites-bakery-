@@ -6,6 +6,137 @@
     <title>Contact - Sweet Bites Bakery</title>
     <link rel="stylesheet" href="css/styles.css">
     <link href="https://fonts.googleapis.com/css2?family=Pacifico&family=Poppins:wght@400;500;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <style>
+        .contact-container {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 3rem;
+            margin-top: 2rem;
+        }
+        
+        .contact-info {
+            background: #fff;
+            padding: 2rem;
+            border-radius: 15px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            border: 2px solid #f0e6d9;
+        }
+        
+        .contact-method {
+            display: flex;
+            align-items: center;
+            margin-bottom: 1.5rem;
+            padding-bottom: 1.5rem;
+            border-bottom: 1px solid #f0e6d9;
+        }
+        
+        .contact-method:last-child {
+            border-bottom: none;
+            margin-bottom: 0;
+            padding-bottom: 0;
+        }
+        
+        .contact-icon {
+            font-size: 1.5rem;
+            color: #d291bc;
+            width: 50px;
+            text-align: center;
+            margin-right: 1rem;
+        }
+        
+        .contact-details h3 {
+            margin-bottom: 0.5rem;
+            color: #5a4a42;
+        }
+        
+        .contact-details p {
+            margin: 0;
+            color: #5a4a42;
+        }
+        
+        .form-container {
+            background: #fff;
+            padding: 2rem;
+            border-radius: 15px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            border: 2px solid #f0e6d9;
+        }
+        
+        .form-header {
+            text-align: center;
+            margin-bottom: 2rem;
+        }
+        
+        .form-header h2 {
+            color: #d291bc;
+            margin-bottom: 0.5rem;
+        }
+        
+        .form-embed {
+            width: 100%;
+            height: 600px;
+            border: none;
+            border-radius: 10px;
+        }
+        
+        .map-container {
+            margin-top: 3rem;
+        }
+        
+        .locations-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 2rem;
+            margin-top: 1.5rem;
+        }
+        
+        .location-card {
+            background: #fff;
+            padding: 1.5rem;
+            border-radius: 10px;
+            box-shadow: 0 3px 10px rgba(0,0,0,0.08);
+            border: 1px solid #f0e6d9;
+        }
+        
+        .location-card h3 {
+            color: #87a96b;
+            margin-bottom: 1rem;
+            display: flex;
+            align-items: center;
+        }
+        
+        .location-card h3 i {
+            margin-right: 10px;
+        }
+        
+        .hours-list {
+            list-style: none;
+            padding: 0;
+            margin-top: 1rem;
+        }
+        
+        .hours-list li {
+            display: flex;
+            justify-content: space-between;
+            padding: 0.3rem 0;
+            border-bottom: 1px dashed #f0e6d9;
+        }
+        
+        .hours-list li:last-child {
+            border-bottom: none;
+        }
+        
+        @media (max-width: 768px) {
+            .contact-container {
+                grid-template-columns: 1fr;
+            }
+            
+            .locations-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
 </head>
 <body>
     <header class="container">
@@ -33,42 +164,101 @@
 
     <main class="container">
         <h1>Contact Us</h1>
+        <p style="text-align: center; max-width: 700px; margin: 0 auto 2rem;">We'd love to hear from you! Visit our bakeries, give us a call, or use our contact form to get in touch.</p>
         
-        <section style="margin-bottom: 3rem;">
-            <h2>Get in Touch</h2>
-            <p><strong>Email:</strong> hello@sweetbites.co.za</p>
-            <p><strong>Phone:</strong> <a href="tel:+27621234567">+27 62 123 4567</a></p>
-        </section>
-
-        <section style="margin-bottom: 3rem;">
-            <h2>Our Locations</h2>
-            
-            <div style="margin-bottom: 2rem;">
-                <h3>Cape Town CBD</h3>
-                <iframe src="https://maps.google.com/maps?q=Cape%20Town%20CBD&t=&z=15&ie=UTF8&iwloc=&output=embed" width="100%" height="250"></iframe>
+        <div class="contact-container">
+            <div class="contact-info">
+                <h2 style="color: #d291bc; margin-bottom: 1.5rem;">Get In Touch</h2>
+                
+                <div class="contact-method">
+                    <div class="contact-icon">
+                        <i class="fas fa-map-marker-alt"></i>
+                    </div>
+                    <div class="contact-details">
+                        <h3>Our Locations</h3>
+                        <p>Cape Town CBD & Claremont</p>
+                    </div>
+                </div>
+                
+                <div class="contact-method">
+                    <div class="contact-icon">
+                        <i class="fas fa-phone"></i>
+                    </div>
+                    <div class="contact-details">
+                        <h3>Call Us</h3>
+                        <p><a href="tel:+27621234567">+27 62 123 4567</a></p>
+                    </div>
+                </div>
+                
+                <div class="contact-method">
+                    <div class="contact-icon">
+                        <i class="fas fa-envelope"></i>
+                    </div>
+                    <div class="contact-details">
+                        <h3>Email Us</h3>
+                        <p><a href="mailto:hello@sweetbites.co.za">hello@sweetbites.co.za</a></p>
+                    </div>
+                </div>
+                
+                <div class="contact-method">
+                    <div class="contact-icon">
+                        <i class="fab fa-whatsapp"></i>
+                    </div>
+                    <div class="contact-details">
+                        <h3>WhatsApp</h3>
+                        <p><a href="https://wa.me/27621234567">Message us for quick orders</a></p>
+                    </div>
+                </div>
+                
+                <div class="contact-method">
+                    <div class="contact-icon">
+                        <i class="fas fa-clock"></i>
+                    </div>
+                    <div class="contact-details">
+                        <h3>Business Hours</h3>
+                        <p>Monday - Saturday: 7:00 AM - 7:00 PM</p>
+                        <p>Sunday: 8:00 AM - 4:00 PM</p>
+                    </div>
+                </div>
             </div>
             
-            <div style="margin-bottom: 2rem;">
-                <h3>Claremont</h3>
-                <iframe src="https://maps.google.com/maps?q=Claremont%2C%20Cape%20Town&t=&z=15&ie=UTF8&iwloc=&output=embed" width="100%" height="250"></iframe>
+            <div class="form-container">
+                <div class="form-header">
+                    <h2>Send Us a Message</h2>
+                    <p>Fill out our contact form and we'll get back to you within 24 hours</p>
+                </div>
+                <iframe src="https://forms.gle/MoRBdhW2yvhUpYHM7" class="form-embed" title="Sweet Bites Bakery Contact Form"></iframe>
             </div>
-        </section>
-
-        <section>
-            <h2>Send a Message</h2>
-            <form action="#" method="post">
-                <label for="name">Name:</label>
-                <input type="text" id="name" name="name" required>
-
-                <label for="email">Email:</label>
-                <input type="email" id="email" name="email" required>
-
-                <label for="message">Message:</label>
-                <textarea id="message" name="message" rows="4" required></textarea>
-
-                <button type="submit">Send Message</button>
-            </form>
-        </section>
+        </div>
+        
+        <div class="map-container">
+            <h2 style="text-align: center; color: #d291bc; margin-bottom: 1rem;">Our Locations</h2>
+            <p style="text-align: center; max-width: 700px; margin: 0 auto 2rem;">Visit us at one of our two convenient Cape Town locations</p>
+            
+            <div class="locations-grid">
+                <div class="location-card">
+                    <h3><i class="fas fa-store"></i> Cape Town CBD</h3>
+                    <p>123 Bakery Street, City Center, Cape Town, 8001</p>
+                    <iframe src="https://maps.google.com/maps?q=Cape%20Town%20CBD&t=&z=15&ie=UTF8&iwloc=&output=embed" width="100%" height="200"></iframe>
+                    <ul class="hours-list">
+                        <li><span>Monday - Friday:</span> <span>7:00 AM - 8:00 PM</span></li>
+                        <li><span>Saturday:</span> <span>7:00 AM - 7:00 PM</span></li>
+                        <li><span>Sunday:</span> <span>8:00 AM - 4:00 PM</span></li>
+                    </ul>
+                </div>
+                
+                <div class="location-card">
+                    <h3><i class="fas fa-store"></i> Claremont Branch</h3>
+                    <p>45 Sweet Avenue, Claremont, Cape Town, 7708</p>
+                    <iframe src="https://maps.google.com/maps?q=Claremont%2C%20Cape%20Town&t=&z=15&ie=UTF8&iwloc=&output=embed" width="100%" height="200"></iframe>
+                    <ul class="hours-list">
+                        <li><span>Monday - Friday:</span> <span>7:00 AM - 7:00 PM</span></li>
+                        <li><span>Saturday:</span> <span>7:00 AM - 6:00 PM</span></li>
+                        <li><span>Sunday:</span> <span>8:00 AM - 3:00 PM</span></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
     </main>
 
     <footer class="container">
