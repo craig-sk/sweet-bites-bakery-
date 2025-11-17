@@ -1,71 +1,197 @@
 class SweetBitesApp {
     constructor() {
         this.cart = JSON.parse(localStorage.getItem('sweetbites_cart')) || [];
+        this.allProducts = [];
         this.init();
     }
 
     init() {
         this.setupMobileMenu();
         this.setupCart();
+        this.setupSearch();
         this.setupAnimations();
         this.setupFormHandlers();
         this.setupSEO();
         this.updateCartDisplay();
+        this.collectProducts();
     }
 
-    setupSEO() {
-        const schema = {
-            "@context": "https://schema.org",
-            "@type": "Bakery",
-            "name": "Sweet Bites Bakery",
-            "description": "Family-owned bakery in Cape Town. Order cupcakes, cakes, breads and pastries.",
-            "url": window.location.href,
-            "telephone": "+27621234567",
-            "email": "hello@sweetbites.co.za",
-            "address": {
-                "@type": "PostalAddress",
-                "streetAddress": "123 Bakery Street, City Center",
-                "addressLocality": "Cape Town",
-                "addressCountry": "ZA"
-            },
-            "openingHours": [
-                "Mo-Sa 07:00-19:00",
-                "Su 08:00-16:00"
-            ],
-            "priceRange": "R25 - R240"
-        };
+    setupSearch() {
+        const searchHTML = `
+            <div class="search-container" style="margin: 2rem 0; max-width: 500px; margin-left: auto; margin-right: auto;">
+                <div style="position: relative;">
+                    <input type="text" id="menu-search" placeholder="Search cupcakes, cakes, bread, pastries..." 
+                           style="width: 100%; padding: 1rem 1rem 1rem 3rem; border: 2px solid #ddd; border-radius: 50px; font-size: 1rem; font-family: 'Poppins', sans-serif;">
+                    <i class="fas fa-search" style="position: absolute; left: 1.2rem; top: 50%; transform: translateY(-50%); color: #d291bc;"></i>
+                </div>
+                <div id="search-results" style="display: none; margin-top: 1rem; background: white; border-radius: 10px; box-shadow: 0 5px 15px rgba(0,0,0,0.1); max-height: 300px; overflow-y: auto;"></div>
+            </div>
+        `;
 
-        const script = document.createElement('script');
-        script.type = 'application/ld+json';
-        script.textContent = JSON.stringify(schema);
-        document.head.appendChild(script);
-
-        if ('IntersectionObserver' in window) {
-            const imageObserver = new IntersectionObserver((entries, observer) => {
-                entries.forEach(entry => {
-                    if (entry.isIntersecting) {
-                        const img = entry.target;
-                        img.src = img.dataset.src;
-                        img.classList.remove('lazy');
-                        imageObserver.unobserve(img);
-                    }
-                });
+        const fullMenuSection = document.querySelector('section:nth-child(3) h2');
+        if (fullMenuSection) {
+            fullMenuSection.insertAdjacentHTML('afterend', searchHTML);
+            
+            const searchInput = document.getElementById('menu-search');
+            const searchResults = document.getElementById('search-results');
+            
+            searchInput.addEventListener('input', (e) => {
+                const searchTerm = e.target.value.toLowerCase().trim();
+                this.handleSearch(searchTerm, searchResults);
             });
 
-            document.querySelectorAll('img[data-src]').forEach(img => {
-                imageObserver.observe(img);
+            searchInput.addEventListener('focus', () => {
+                const searchTerm = searchInput.value.toLowerCase().trim();
+                if (searchTerm) {
+                    this.handleSearch(searchTerm, searchResults);
+                }
+            });
+
+            document.addEventListener('click', (e) => {
+                if (!e.target.closest('.search-container')) {
+                    searchResults.style.display = 'none';
+                }
             });
         }
+    }
 
-        window.addEventListener('load', () => {
-            const loadTime = performance.timing.loadEventEnd - performance.timing.navigationStart;
-            if (typeof gtag !== 'undefined') {
-                gtag('event', 'timing_complete', {
-                    name: 'load',
-                    value: loadTime,
-                    event_category: 'Load Time'
+    collectProducts() {
+        const productCards = document.querySelectorAll('.product-card');
+        this.allProducts = [];
+        
+        productCards.forEach(card => {
+            const name = card.querySelector('h3')?.textContent?.trim() || '';
+            const price = card.querySelector('p')?.textContent?.trim() || '';
+            const image = card.querySelector('img')?.src || '';
+            const category = this.getProductCategory(card);
+            
+            if (name) {
+                this.allProducts.push({
+                    element: card,
+                    name: name,
+                    price: price,
+                    image: image,
+                    category: category,
+                    originalDisplay: card.style.display
                 });
             }
+        });
+    }
+
+    getProductCategory(card) {
+        const categorySection = card.closest('.menu-category');
+        if (categorySection) {
+            const categoryTitle = categorySection.querySelector('h3');
+            if (categoryTitle) {
+                return categoryTitle.textContent.replace(/[^a-zA-Z ]/g, '').trim();
+            }
+        }
+        return 'Other';
+    }
+
+    handleSearch(searchTerm, resultsContainer) {
+        if (searchTerm.length < 2) {
+            resultsContainer.style.display = 'none';
+            this.showAllProducts();
+            return;
+        }
+
+        const filteredProducts = this.allProducts.filter(product => 
+            product.name.toLowerCase().includes(searchTerm) ||
+            product.category.toLowerCase().includes(searchTerm) ||
+            product.price.toLowerCase().includes(searchTerm)
+        );
+
+        this.displaySearchResults(filteredProducts, resultsContainer, searchTerm);
+        this.filterProductsDisplay(searchTerm);
+    }
+
+    displaySearchResults(products, container, searchTerm) {
+        if (products.length === 0) {
+            container.innerHTML = `<div style="padding: 1.5rem; text-align: center; color: #5a4a42;">No products found for "${searchTerm}"</div>`;
+            container.style.display = 'block';
+            return;
+        }
+
+        let resultsHTML = '';
+        products.forEach(product => {
+            resultsHTML += `
+                <div class="search-result-item" style="padding: 1rem; border-bottom: 1px solid #f0e6d9; cursor: pointer; display: flex; align-items: center; gap: 1rem; transition: background-color 0.2s;" 
+                     onmouseover="this.style.backgroundColor='#f9f7f4'" 
+                     onmouseout="this.style.backgroundColor='transparent'"
+                     onclick="sweetBitesApp.selectSearchResult('${product.name.replace(/'/g, "\\'")}')">
+                    ${product.image ? `<img src="${product.image}" alt="${product.name}" style="width: 40px; height: 40px; object-fit: cover; border-radius: 5px;">` : ''}
+                    <div>
+                        <div style="font-weight: bold; color: #5a4a42;">${product.name}</div>
+                        <div style="font-size: 0.9rem; color: #87a96b;">${product.price} • ${product.category}</div>
+                    </div>
+                </div>
+            `;
+        });
+
+        container.innerHTML = resultsHTML;
+        container.style.display = 'block';
+    }
+
+    selectSearchResult(productName) {
+        const searchInput = document.getElementById('menu-search');
+        const resultsContainer = document.getElementById('search-results');
+        
+        searchInput.value = productName;
+        resultsContainer.style.display = 'none';
+        
+        this.handleSearch(productName.toLowerCase(), resultsContainer);
+        
+        const productElement = this.allProducts.find(p => p.name === productName)?.element;
+        if (productElement) {
+            productElement.scrollIntoView({ behavior: 'smooth', block: 'center' });
+            productElement.style.transform = 'scale(1.05)';
+            productElement.style.boxShadow = '0 0 0 2px #d291bc';
+            setTimeout(() => {
+                productElement.style.transform = 'scale(1)';
+                productElement.style.boxShadow = '';
+            }, 2000);
+        }
+    }
+
+    filterProductsDisplay(searchTerm) {
+        this.allProducts.forEach(product => {
+            const matchesSearch = 
+                product.name.toLowerCase().includes(searchTerm) ||
+                product.category.toLowerCase().includes(searchTerm) ||
+                product.price.toLowerCase().includes(searchTerm);
+            
+            if (matchesSearch) {
+                product.element.style.display = 'block';
+                product.element.closest('.menu-category').style.display = 'block';
+            } else {
+                product.element.style.display = 'none';
+            }
+        });
+
+        this.updateCategoryVisibility();
+    }
+
+    updateCategoryVisibility() {
+        const categories = document.querySelectorAll('.menu-category');
+        categories.forEach(category => {
+            const visibleProducts = category.querySelectorAll('.product-card[style*="display: block"], .product-card:not([style*="display: none"])');
+            if (visibleProducts.length === 0) {
+                category.style.display = 'none';
+            } else {
+                category.style.display = 'block';
+            }
+        });
+    }
+
+    showAllProducts() {
+        this.allProducts.forEach(product => {
+            product.element.style.display = product.originalDisplay || 'block';
+        });
+        
+        const categories = document.querySelectorAll('.menu-category');
+        categories.forEach(category => {
+            category.style.display = 'block';
         });
     }
 
@@ -77,7 +203,6 @@ class SweetBitesApp {
             mobileBtn.addEventListener('click', (e) => {
                 e.preventDefault();
                 mobileNav.classList.toggle('active');
-                this.trackEvent('mobile_menu', { state: mobileNav.classList.contains('active') ? 'open' : 'closed' });
             });
 
             document.addEventListener('click', (e) => {
@@ -151,7 +276,6 @@ class SweetBitesApp {
         this.saveCart();
         this.updateCartDisplay();
         this.showSuccess('Item added to cart!');
-        this.trackEvent('add_to_cart', { product: name, price: price });
         
         product.style.transform = 'scale(1.05)';
         setTimeout(() => {
@@ -165,7 +289,6 @@ class SweetBitesApp {
         this.saveCart();
         this.updateCartDisplay();
         this.renderCartItems();
-        this.trackEvent('remove_from_cart', { product: removedItem.name });
     }
 
     updateQuantity(index, change) {
@@ -178,10 +301,6 @@ class SweetBitesApp {
             this.saveCart();
             this.updateCartDisplay();
             this.renderCartItems();
-            this.trackEvent('update_cart_quantity', { 
-                product: item.name, 
-                quantity: item.quantity 
-            });
         }
     }
 
@@ -189,7 +308,6 @@ class SweetBitesApp {
         document.querySelector('.cart-modal').classList.add('active');
         document.querySelector('.cart-overlay').classList.add('active');
         this.renderCartItems();
-        this.trackEvent('open_cart', { item_count: this.cart.length });
     }
 
     closeCart() {
@@ -253,29 +371,6 @@ class SweetBitesApp {
 
         const total = this.cart.reduce((sum, item) => sum + (item.price * item.quantity), 0);
         cartTotal.textContent = `Total: R${total}`;
-        
-        const existingCheckout = document.querySelector('.checkout-btn');
-        if (existingCheckout) existingCheckout.remove();
-        
-        if (this.cart.length > 0) {
-            const checkoutBtn = document.createElement('button');
-            checkoutBtn.className = 'btn checkout-btn';
-            checkoutBtn.textContent = 'Proceed to Checkout';
-            checkoutBtn.style.marginTop = '1rem';
-            checkoutBtn.addEventListener('click', () => {
-                this.proceedToCheckout();
-            });
-            cartTotal.parentNode.insertBefore(checkoutBtn, cartTotal.nextSibling);
-        }
-    }
-
-    proceedToCheckout() {
-        this.trackEvent('begin_checkout', { 
-            item_count: this.cart.length,
-            total_value: this.cart.reduce((sum, item) => sum + (item.price * item.quantity), 0)
-        });
-        
-        window.location.href = 'enquiry.html?cart=' + encodeURIComponent(JSON.stringify(this.cart));
     }
 
     updateCartDisplay() {
@@ -297,7 +392,6 @@ class SweetBitesApp {
             entries.forEach(entry => {
                 if (entry.isIntersecting) {
                     entry.target.classList.add('visible');
-                    this.trackEvent('element_view', { element: entry.target.className });
                 }
             });
         }, {
@@ -316,12 +410,6 @@ class SweetBitesApp {
                 e.preventDefault();
                 this.handleFormSubmit(form);
             });
-            
-            form.querySelectorAll('input, textarea').forEach(field => {
-                field.addEventListener('focus', () => {
-                    this.trackEvent('form_focus', { field: field.name || field.type });
-                });
-            });
         });
     }
 
@@ -334,11 +422,6 @@ class SweetBitesApp {
         
         setTimeout(() => {
             this.showSuccess('Message sent successfully! We will contact you soon.');
-            this.trackEvent('form_submit', { 
-                form_type: form.id || 'contact_form',
-                fields_count: form.querySelectorAll('input, textarea, select').length
-            });
-            
             form.reset();
             submitBtn.disabled = false;
             submitBtn.textContent = originalText;
@@ -363,11 +446,32 @@ class SweetBitesApp {
         }
     }
 
-    trackEvent(action, data) {
-        if (typeof gtag !== 'undefined') {
-            gtag('event', action, data);
-        }
-        console.log(`Event: ${action}`, data);
+    setupSEO() {
+        const schema = {
+            "@context": "https://schema.org",
+            "@type": "Bakery",
+            "name": "Sweet Bites Bakery",
+            "description": "Family-owned bakery in Cape Town. Order cupcakes, cakes, breads and pastries.",
+            "url": window.location.href,
+            "telephone": "+27621234567",
+            "email": "hello@sweetbites.co.za",
+            "address": {
+                "@type": "PostalAddress",
+                "streetAddress": "123 Bakery Street, City Center",
+                "addressLocality": "Cape Town",
+                "addressCountry": "ZA"
+            },
+            "openingHours": [
+                "Mo-Sa 07:00-19:00",
+                "Su 08:00-16:00"
+            ],
+            "priceRange": "R25 - R240"
+        };
+
+        const script = document.createElement('script');
+        script.type = 'application/ld+json';
+        script.textContent = JSON.stringify(schema);
+        document.head.appendChild(script);
     }
 }
 
@@ -377,8 +481,4 @@ if (document.readyState === 'loading') {
     });
 } else {
     window.sweetBitesApp = new SweetBitesApp();
-}
-
-if (typeof module !== 'undefined' && module.exports) {
-    module.exports = SweetBitesApp;
 }
