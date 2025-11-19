@@ -121,7 +121,7 @@ Part 2 Changes (CSS Styling & Responsive Design)
 
 **Messages to Lecturer**
 
-· All Part 1 feedback has been addressed and implemented
+· All Part 1 & 2  feedback has been addressed and implemented
 
 · CSS styling completed with responsive design
 
